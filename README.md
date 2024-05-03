@@ -99,3 +99,41 @@ Content-Type: application/json
   "readPage": 150,
   "reading": true
 }
+```
+### Get All Books
+
+- **URL:** `/books`
+- **Method:** `GET`
+- **Description:** Retrieves all books or filtered books based on query parameters.
+
+#### Query Parameters
+
+- `name` (string): Filter books by name. The API will return books whose names contain the provided string, regardless of case sensitivity.
+- `reading` (boolean): Filter books by reading status. Use `0` to retrieve books that are not currently being read, and `1` to retrieve books that are being read.
+- `finished` (boolean): Filter books by finished status. Use `0` to retrieve books that have not been finished, and `1` to retrieve books that have been finished.
+
+#### Response
+
+- **Status Code:** 200 OK
+- **Content-Type:** application/json
+
+The response will contain a list of books in the following format:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "books": [
+      {
+        "id": "1",
+        "name": "Book Name",
+        "publisher": "Publisher Name"
+      },
+      {
+        "id": "2",
+        "name": "Another Book",
+        "publisher": "Another Publisher"
+      }
+    ]
+  }
+}
